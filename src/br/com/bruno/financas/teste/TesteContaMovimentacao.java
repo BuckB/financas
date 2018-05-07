@@ -14,11 +14,9 @@ public class TesteContaMovimentacao {
 
 	public static void main(String[] args) {
 
-		Conta conta1 = new Conta();
-		conta1.setAgencia("1234");
-		conta1.setBanco("Bradesco");
-		conta1.setNumero("111213");
-		conta1.setTitular("Bruno");
+		EntityManager em = new JPAUtil().getEntityManager();
+
+		Conta conta1 = em.find(Conta.class, 1);
 		
 		Movimentacao movi1 = new Movimentacao();
 		movi1.setConta(conta1);
@@ -26,10 +24,8 @@ public class TesteContaMovimentacao {
 		movi1.setDescricao("Cafe");
 		movi1.setTipo(TipoMovimentacao.SAIDA);
 		movi1.setValor(new BigDecimal("50.00"));
-		
-		EntityManager em = new JPAUtil().getEntityManager();
+
 		em.getTransaction().begin();
-		em.persist(conta1);
 		em.persist(movi1);
 		
 		em.getTransaction().commit();

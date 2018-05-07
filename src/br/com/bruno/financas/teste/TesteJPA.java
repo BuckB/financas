@@ -9,13 +9,13 @@ public class TesteJPA {
 
 	public static void main(String[] args) {
 		Conta contaDoBruno = new Conta();
-		contaDoBruno.setTitular("Bruno B3");
+		contaDoBruno.setTitular("Bruno");
 		contaDoBruno.setBanco("Swiss Bank");
 		contaDoBruno.setAgencia("Montreaux");
 		contaDoBruno.setNumero("123456");
 		
 		Conta contaDoDaniel = new Conta();
-		contaDoDaniel.setTitular("Danger Dan");
+		contaDoDaniel.setTitular("Dan");
 		contaDoDaniel.setBanco("TD Bank");
 		contaDoDaniel.setAgencia("New England");
 		contaDoDaniel.setNumero("654321");
