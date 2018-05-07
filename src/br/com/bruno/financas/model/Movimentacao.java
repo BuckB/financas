@@ -3,6 +3,7 @@ package br.com.bruno.financas.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,16 +32,17 @@ public class Movimentacao implements Serializable {
 	private Calendar data;
 	private TipoMovimentacao tipo;
 	private Conta conta;
+	private List<Categoria> categoria;
 
-	public Movimentacao() {
-	}
+	public Movimentacao() {}
 
-	public Movimentacao(BigDecimal valor, String descricao, Calendar data, TipoMovimentacao tipo, Conta conta) {
+	public Movimentacao(BigDecimal valor, String descricao, Calendar data, TipoMovimentacao tipo, Conta conta, List<Categoria> categoria) {
 		this.valor = valor;
 		this.descricao = descricao;
 		this.data = data;
 		this.tipo = tipo;
 		this.conta = conta;
+		this.categoria = categoria;
 	}
 
 	@Id
@@ -94,5 +97,14 @@ public class Movimentacao implements Serializable {
 
 	public void setConta(Conta conta) {
 		this.conta = conta;
+	}
+
+	@ManyToMany
+	public List<Categoria> getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(List<Categoria> categoria) {
+		this.categoria = categoria;
 	}
 }
