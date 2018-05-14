@@ -13,18 +13,25 @@ public class TesteJPA {
 		contaDoBruno.setBanco("Swiss Bank");
 		contaDoBruno.setAgencia("Montreaux");
 		contaDoBruno.setNumero("123456");
-		
+
 		Conta contaDoDaniel = new Conta();
 		contaDoDaniel.setTitular("Dan");
 		contaDoDaniel.setBanco("TD Bank");
 		contaDoDaniel.setAgencia("New England");
 		contaDoDaniel.setNumero("654321");
-		
+
+		Conta novaConta = new Conta();
+		novaConta.setTitular("Nanda");
+		novaConta.setBanco("Santander");
+		novaConta.setAgencia("0012");
+		novaConta.setNumero("102030");
+
 		EntityManager em = new JPAUtil().getEntityManager();
-		
+
 		em.getTransaction().begin();
 		em.persist(contaDoBruno);
 		em.persist(contaDoDaniel);
+		em.persist(novaConta);
 		em.getTransaction().commit();
 		em.close();
 

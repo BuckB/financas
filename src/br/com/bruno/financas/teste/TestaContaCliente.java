@@ -10,24 +10,21 @@ public class TestaContaCliente {
 
 	public static void main(String[] args) {
 
-		Conta novaConta = new Conta();
-		novaConta.setTitular("Nanda");
-		novaConta.setBanco("Santander");
-		novaConta.setAgencia("0012");
-		novaConta.setNumero("102030");
+		EntityManager em = new JPAUtil().getEntityManager();
+		em.getTransaction().begin();
+
+		Conta testeConta = em.find(Conta.class, 3);
 
 		Cliente cliente = new Cliente();
 		cliente.setNome("Fernanda");
 		cliente.setEndereco("Rua dos Bobos 0");
 		cliente.setProfissao("Facility Manager");
-		cliente.setConta(novaConta);
+		cliente.setConta(testeConta);
 
-		EntityManager em = new JPAUtil().getEntityManager();
-		em.getTransaction().begin();
-		
-		em.persist(novaConta);
+
+		em.persist(testeConta);
 		em.persist(cliente);
-		
+
 		em.getTransaction().commit();
 		em.close();
 	}

@@ -20,7 +20,8 @@ public class Cliente implements Serializable {
 	private String endereco;
 	private Conta conta;
 
-	public Cliente() {}
+	public Cliente() {
+	}
 
 	public Cliente(String nome, String profissao, String endereco, Conta conta) {
 		this.nome = nome;
@@ -30,33 +31,40 @@ public class Cliente implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getProfissao() {
 		return profissao;
 	}
+
 	public void setProfissao(String profissao) {
 		this.profissao = profissao;
 	}
+
 	public String getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 
-	@JoinColumn(unique=true)
+	@JoinColumn(unique = true)
 	@OneToOne
 	public Conta getConta() {
 		return conta;

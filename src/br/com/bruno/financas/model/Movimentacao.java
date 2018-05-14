@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 import br.com.bruno.financas.enums.TipoMovimentacao;
 
 @Entity
-@Table(name="Movimentacao", schema="financas")
+@Table(name = "Movimentacao", schema = "financas")
 public class Movimentacao implements Serializable {
 
 	private static final long serialVersionUID = 2174193527089811687L;
@@ -34,9 +34,11 @@ public class Movimentacao implements Serializable {
 	private Conta conta;
 	private List<Categoria> categoria;
 
-	public Movimentacao() {}
+	public Movimentacao() {
+	}
 
-	public Movimentacao(BigDecimal valor, String descricao, Calendar data, TipoMovimentacao tipo, Conta conta, List<Categoria> categoria) {
+	public Movimentacao(BigDecimal valor, String descricao, Calendar data, TipoMovimentacao tipo, Conta conta,
+			List<Categoria> categoria) {
 		this.valor = valor;
 		this.descricao = descricao;
 		this.data = data;
@@ -46,7 +48,7 @@ public class Movimentacao implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
