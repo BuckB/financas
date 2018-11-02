@@ -35,3 +35,39 @@ CREATE TABLE IF NOT EXISTS Movimentacao
 
 CREATE INDEX contaID
   on Movimentacao (contaID);
+
+--
+-- Tabela de Clientes
+--
+
+CREATE TABLE IF NOT EXISTS Cliente
+(
+  id	  INT		   NOT NULL PRIMARY KEY,
+  agencia VARCHAR(255) NULL,
+  banco	  VARCHAR(255) NULL,
+  numero  VARCHAR(255) NULL,
+  titular VARCHAR(255) NULL
+);
+
+--
+-- Tabela Categoria
+--
+CREATE TABLE IF NOT EXISTS Categoria
+(
+  id	INT			 NOT NULL PRIMARY KEY,
+  nome	VARCHAR(255) NULL
+);
+
+--
+-- Tabela Movimentacao_Categoria
+--
+
+CREATE TABLE IF NOT EXISTS Movimentacao_Categoria
+(
+ movimentacao_id	INT NOT NULL,
+ categoria_id		INT NOT NULL,
+ constraint movimentacaoID,
+ foreign key (Movimentacao_id) references Movimentacao(id),
+ constraint categoriaID,
+ foreign key (categoria_id) references Categoria(id)
+);

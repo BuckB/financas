@@ -1,7 +1,5 @@
 package br.com.bruno.financas.teste;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
