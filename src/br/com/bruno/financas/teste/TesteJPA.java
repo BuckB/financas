@@ -21,7 +21,7 @@ public class TesteJPA {
 		contaDoDaniel.setNumero("654321");
 
 		Conta novaConta = new Conta();
-		novaConta.setTitular("Nanda");
+		novaConta.setTitular("Tata");
 		novaConta.setBanco("Santander");
 		novaConta.setAgencia("0012");
 		novaConta.setNumero("102030");
